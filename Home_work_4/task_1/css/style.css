@@ -1,0 +1,12 @@
+body {
+   background-color: lightsteelblue;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hide {
+   display: none;
+}
+
+.show {
+   display: block;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Урок 4. CSS и JavaScript. Задание 1</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+   <!-- Задание 1
+Разработайте игру «Угадай значение». Страница загадывает число от 1 до 100. Пользователь в поле ввода вводит значение пытаясь угадать загаданное число. Если пользователь не угадывает значение, страница выводит сообщение с текстом «загаданное значение больше введенного вами» или «загаданное значение меньше введенного вами». Подумайте, как можно применить DHTML в таком приложении. -->
+
+   <h3>Игра "Угадай значение"</h3>
+   <label for="input-id">
+      Введите число от 1 до 100
+      <input type="number" id="input-id" min="1" max="100" placeholder=" ">
+      <input type="submit" id="btn-check" value="Проверить">
+   </label>
+
+   <p id="msg-greater" class="msg-greater hide">Загаданное значение больше введенного вами</p>
+   <p id="msg-less" class="msg-less hide">Загаданное значение меньше введенного вами</p>
+   <p id="msg-bingo" class="msg-bingo hide">Вы угадали!</p>
+
+
+   <script src="js/Module.js"></script>
+</body>
+
+</html>

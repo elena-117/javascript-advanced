@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Урок 4. CSS и JavaScript. Задание 2</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+   <!-- Задание 2
+   Создайте страницу для авторизации. На странице должны находиться поля вводов для логина и пароля, кнопка «Вход» и
+   checkbox «Запомнить меня». С помощью CSS, который расположен в отдельном файле, выровняйте форму для авторизации по
+   центру страницы. Разработайте сценарий, который будет срабатывать по нажатию на кнопку «Вход». Сценарий должен
+   реализовывать следующее поведение:
+    Если при нажатии на кнопку поля ввода пустые – выводиться сообщение (в теле страницы, не через alert) «Вы не
+   заполнили поля логин и пароль». Также поля вводов должны получить красный фон.
+    Если введен логин admin и пароль 12345, то отобразить пользователю зеленым цветом сообщение «Вы авторизированы». -->
+
+   <form id="my-form" class="my-form">
+      <p id="block-login">
+         <label for="input-login">Логин:
+         </label>
+         <input id="input-login" type="text" placeholder=" ">
+      </p>
+      <p id="block-password">
+         <label for="input-password">Пароль:
+         </label>
+         <input id="input-password" type="text" placeholder=" ">
+      </p>
+      <p id="block-submit">
+         <button id="btn-submit" class="btn-submit" type="button" form="my-form">Вход</button>
+         <label for="input-checkbox">Запомнить меня
+            <input type="checkbox" name="checkbox" id="input-checkbox">
+         </label>
+      </p>
+      <p id="msg-allert"></p>
+   </form>
+
+   <script src="js/Module.js"></script>
+</body>
+
+</html>
