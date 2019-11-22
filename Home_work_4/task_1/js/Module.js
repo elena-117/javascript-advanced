@@ -11,11 +11,11 @@ Module.checkNumber = function () {
 
    check.addEventListener("click", function () {
       console.log(randomNumber);
-      if (input.value && input.value > randomNumber) {
+      if (input.value && input.value < randomNumber) {
          msgGreater.classList.remove("hide");
          msgGreater.classList.add("block");
          msgGreater.style.color = "red";
-      } else if (input.value && input.value < randomNumber) {
+      } else if (input.value && input.value > randomNumber) {
          msgLess.classList.remove("hide");
          msgLess.classList.add("block");
          msgLess.style.color = "yellow";
