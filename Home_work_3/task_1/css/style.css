@@ -1,0 +1,56 @@
+@font-face {
+   font-family: 'DS-Digital Bold';
+   src: url('../fonts/DS-Digital-Bold.eot');
+   src: url('DS-Digital-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/DS-Digital-Bold.woff') format('woff'),
+      url('../fonts/DS-Digital-Bold.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+.hide {
+   display: none;
+}
+
+.show {
+   display: block;
+}
+
+.block {
+   margin: 20px;
+   padding: 6px 8px;
+   border: 2px solid slategrey;
+   width: 80px;
+   display: flex;
+   justify-content: space-between;
+   font-size: 22px;
+   font-family: 'DS-Digital Bold';
+   color: darkslategrey;
+}
+
+.item:nth-child(1)::after,
+.item:nth-child(2)::after {
+   content: ':';
+   position: absolute;
+   left: 61px;
+}
+
+.item:nth-child(2)::after {
+   left: 90px;
+}
+
+.buttons-block .btn {
+   margin: 5px 10px;
+   padding: 6px 16px;
+   width: 80px;
+   text-align: center;
+   border: 2px solid green;
+   border-radius: 4px;
+}
+
+.btn a {
+   text-decoration: none;
+   text-transform: uppercase;
+   cursor: pointer;
+   color: darkslategrey;
+}
