@@ -6,18 +6,15 @@ Module.validate = function () {
   let submit = document.getElementById("submit");
   let newDiv = document.createElement("div");
   let result = document.body.insertBefore(newDiv, myForm);
-  console.log(address);
 
-  function validateEmail(email) {
-    let re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return re.test(email);
-  }
 
   function validateInput() {
-    if (validateEmail(address)) {
-      result.innerHTML = `${address.value} is valid`;
+    let re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (address.value.match(re)) {
+      result.innerText = `${address.value} is valid`;
+      console.log(address.value);
     } else {
-      result.innerHTML = `${address.value} is not valid`;
+      result.innerText = `${address.value} is not valid`;
     }
     return false;
   }
