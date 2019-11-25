@@ -1,0 +1,15 @@
+.block {
+   width: 500px;
+   padding: 20px;
+   border: 2px solid grey
+}
+
+.elem {
+   margin: 10px 20px;
+   width: 80px;
+   height: 35px;
+}
+
+.description {
+   color: grey;
+}
