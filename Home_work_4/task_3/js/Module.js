@@ -2,21 +2,26 @@ let Module = {}
 
 Module.moveBlock = function () {
    let block = document.getElementById("block");
-   let blockRight = document.getElementById("block-right");
-   let widthScreen = window.screen.width;
-   let leftPos = 0
-   let rightPos = 0;
-   console.log(widthScreen);
+   let widthScreen = window.innerWidth;
+   let leftPos = 0;
+   let direction = "right";
 
-   function animateFirst() {
-      if (leftPos <= widthScreen - 30) {
-         block.style.left = leftPos + "px";
+   function animate() {
+      block.style.left = leftPos + "px";
+
+      if (leftPos == widthScreen - 30) {
+         direction = "left";
+      }
+      if (leftPos == 0) {
+         direction = "right";
+      }
+      if (direction == "right") {
          leftPos += 1;
+      } else {
+         leftPos -= 1;
       }
    }
-
-   setInterval(animateFirst, 10);
-
+   setInterval(animate, 10);
 }
 
 window.addEventListener('load', Module.moveBlock);
