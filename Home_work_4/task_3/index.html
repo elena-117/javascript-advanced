@@ -6,17 +6,20 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Урок 4. CSS и JavaScript. Задание</title>
+   <link rel="stylesheet" href="css/style.css">
 </head>
-<!-- Создать анимацию движения квадрата, который движется к одному краю экрана, и ударяясь об него, движется в противоположную сторону. -->
-
-<div id="div1" style="height: 30px; width: 30px; background-color: Green; position: relative;">
-</div>
-
-
-<script src="js/Module.js"></script>
 
 <body>
+   <!-- Создать анимацию движения квадрата, который движется к одному краю экрана, и ударяясь об него, движется в противоположную сторону. -->
 
+   <div id="block" style="height: 30px; width: 30px; background-color: Green; position: relative;">
+   </div>
+   <div id="block-right" class="hidden"
+      style="height: 30px; width: 30px; background-color: Green; position: relative; right: 0;">
+   </div>
+
+
+   <script src="js/Module.js"></script>
 </body>
 
 </html>
