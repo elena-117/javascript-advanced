@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Урок 7. Формы и элементы форм. Задание 1</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+   <!-- Задание 1
+   Разработайте страницу заказа пиццы.
+   Требования к странице:
+   Можно заказать три вида пиццы – маленькая, большая, средняя.
+   Можно самостоятельно выбрать ингредиенты к пицце – грибы, бекон, помидоры, сыр, оливки.
+   На странице должна вводиться информация о покупателе (его телефон и адрес доставки).
+   Подумайте, какие данные следует проверять на странице, реализуйте эту проверку.
+   Также реализуйте подсчет стоимости пиццы, при выборе размеров и ингредиентов, автоматически должна пересчитываться сумма заказа. Цены на размер пиццы и отдельные ингредиенты выберите произвольно. -->
+
+   <div id="order" class="order">
+      <h3 class="order-title">Заказ Пиццы</h3>
+      <div class="container">
+         <div class="container-img">
+            <div class="order-img">
+               <img src="img/pizza-1.jpg" alt="pizza-img">
+            </div>
+            <div class="ingredients-img">
+               <img id="imgCheckbox" class="hidden imgCheckbox" data-img="ingredientMushrooms"
+                  src="img/ingredients/mushrooms.png" alt="mushrooms">
+               <img id="imgCheckbox" class="hidden imgCheckbox" data-img="ingredientBacon"
+                  src="img/ingredients/bacon.png" alt="bacon">
+               <img id="imgCheckbox" class="hidden imgCheckbox" data-img="ingredientTomatoes"
+                  src="img/ingredients/tomatoes.png" alt="tomatoes">
+               <img id="imgCheckbox" class="hidden imgCheckbox" data-img="ingredientCheese"
+                  src="img/ingredients/cheese.png" alt="cheese">
+               <img id="imgCheckbox" class="hidden imgCheckbox" data-img="ingredientOlives"
+                  src="img/ingredients/olives.png" alt="olives">
+            </div>
+         </div>
+
+         <form name="formOrder" id="formOrder" class="order-form">
+            <fieldset name="sizePizzaFieldset">
+               <legend>Выберите размер пиццы</legend>
+
+               <input type="radio" name="sizesPizza" id="small-pizza-id" value="72" data-info="Пицца (&#8960;18)">
+               <label for="small-pizza-id">Маленькая (&#8960;18) <span class="price">&nbsp;72 </span>&#8372;</label><br>
+
+               <input type="radio" name="sizesPizza" id="medium-pizza-id" value="140">
+               <label for="medium-pizza-id">Средняя (&#8960;26) <span class="price">&nbsp;140 </span>&#8372;</label><br>
+
+               <input type="radio" name="sizesPizza" id="large-pizza-id" value="200">
+               <label for="large-pizza-id">Большая (&#8960;40) <span class="price">&nbsp;200 </span>&#8372;</label>
+            </fieldset>
+
+            <fieldset>
+               <legend>Выберите ингредиенты</legend>
+
+               <input type="checkbox" name="ingredientMushrooms" class="ingredients" id="ingredient-mushrooms-id"
+                  value="15" disabled>
+               <label for="ingredient-mushrooms-id">Грибы (<span class="price">+ 15
+                  </span>&#8372;)</label><br>
+
+               <input type="checkbox" name="ingredientBacon" class="ingredients" id="ingredient-bacon-id" value="24"
+                  disabled>
+               <label for="ingredient-bacon-id">Бекон (<span class="price">+ 24 </span>&#8372;)</label><br>
+
+               <input type="checkbox" name="ingredientTomatoes" class="ingredients" id="ingredient-tomatoes-id"
+                  value="12" disabled>
+               <label for="ingredient-tomatoes-id">Помидоры (<span class="price">+ 12
+                  </span>&#8372;)</label><br>
+
+               <input type="checkbox" name="ingredientCheese" class="ingredients" id="ingredient-cheese-id" value="20"
+                  disabled>
+               <label for="ingredient-cheese-id">Сыр (<span class="price">+ 20 </span>&#8372;)</label><br>
+
+               <input type="checkbox" name="ingredientOlives" class="ingredients" id="ingredient-olives-id" value="18"
+                  disabled>
+               <label for="ingredient-olives-id">Оливки (<span class="price">+ 18
+                  </span>&#8372;)</label><br>
+            </fieldset>
+
+            <p class="total-cost">Итого: <span id="totalCostValue" class="price">0</span>
+               &#8372;</p>
+
+            <fieldset class="checkout">
+               <legend>Оформить заказ</legend>
+               <input type="tel" name="order-tel" id="order-tel-id" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  placeholder="Тел. XXX-XXX-XXXX" required>
+               <input type="text" name="order-address" id="order-address-id" placeholder="Адрес доставки" required>
+            </fieldset>
+
+            <input class="submit-btn" id="submit-btn-id" type="submit" value="В корзину" disabled>
+         </form>
+      </div>
+   </div>
+
+   <div id="popap" class="popap hidden">
+      <p class="popap-content">
+         <span>Ваш заказ принят!</span>
+      </p>
+   </div>
+
+
+   <script src="js/main.js"></script>
+</body>
+
+</html>
