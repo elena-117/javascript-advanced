@@ -1,0 +1,9 @@
+.container {
+   margin: 0 auto;
+   width: 1100px;
+}
+
+input,
+select {
+   margin-top: 15px;
+}

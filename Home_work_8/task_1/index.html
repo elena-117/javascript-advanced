@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Урок 8. Cookies и механизм хранения данных на клиенте. Задание 1</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+   <div class="main">
+      <div class="container">
+         <h3>Задание 1</h3>
+
+         <p>Создайте страницу, которую пользователь сможет персонализировать. На странице должен находиться выпадающий
+            список
+            с названиями цветов и поле ввода, в которое можно будет ввести только целочисленное значение. При нажатии на
+            кнопку сохранить, цвет выбранный в выпадающем списке должен быть присвоен фону странице, а целочисленное
+            значение
+            из поля ввода, должно использоваться для изменения размера шрифта на странице. Выбранные настройки должны
+            сохраниться в cookie набор и при повторном заходе пользователя на страницу, настройки должны восстановиться.
+         </p>
+
+         <form id="myForm">
+            <label for="colorsSelect">Выберите цвет страницы</label>
+            <select name="chooseColor" id="colorsSelect">
+               <option value="white" class="bgColors" selected>Белый</option>
+               <option value="grey" class="bgColors">Серый</option>
+               <option value="green" class="bgColors">Зеленый</option>
+               <option value="blue" class="bgColors">Синий</option>
+               <option value="yellow" class="bgColors">Желтый</option>
+               <option value="orange" class="bgColors">Оранжевый</option>
+            </select><br>
+
+            <label for="fontSize">Выберите размер шрифта</label>
+            <input type="number" min="8" max="100" name="fontSize" id="fontSize" pattern="^[1-9]\d*${2}"><br>
+            <input type="button" id="btn" value="Сохранить">
+         </form>
+      </div>
+   </div>
+
+
+   <script src="js/Module.js"></script>
+</body>
+
+</html>
