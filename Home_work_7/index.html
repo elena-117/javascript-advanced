@@ -86,12 +86,14 @@
 
             <fieldset class="checkout">
                <legend>Оформить заказ</legend>
-               <input type="tel" name="order-tel" id="order-tel-id" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                  placeholder="Тел. XXX-XXX-XXXX" required>
-               <input type="text" name="order-address" id="order-address-id" placeholder="Адрес доставки" required>
+               <div id="info-1" class="info-input hidden">* Пожалуйста, заполните это поле</div>
+               <div id="info-2" class="info-input hidden">* Пожалуйста, введите требуемый формат</div>
+               <input type="tel" name="orderTel" id="order-tel-id" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  placeholder="Тел. XXX-XXX-XXXX" disabled>
+               <input type="text" name="orderAddress" id="order-address-id" placeholder="Адрес доставки" disabled>
             </fieldset>
 
-            <input class="submit-btn" id="submit-btn-id" type="submit" value="В корзину" disabled>
+            <input class="submit-btn" id="submit-btn-id" type="button" value="В корзину" disabled>
          </form>
       </div>
    </div>

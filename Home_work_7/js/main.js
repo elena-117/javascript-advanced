@@ -1,25 +1,40 @@
 let Module = {};
 
+function $(id) {
+  return document.getElementById(id);
+}
+
+function $$(cl) {
+  return document.getElementsByClassName(cl);
+}
+
 Module.costCalculation = function() {
   let form = document.formOrder;
-  let totalCostValue = document.getElementById("totalCostValue");
-  let btnSbmit = document.getElementById("submit-btn-id");
+  let totalCostValue = $("totalCostValue");
+  let btnSbmit = $("submit-btn-id");
+  let popap = $("popap");
 
   for (let i = 0; i < form.sizesPizza.length; i++) {
     form.sizesPizza[i].addEventListener("click", costCalculation);
   }
 
   function costCalculation(e) {
+    document.forms[0].orderTel.style.boxShadow = "none";
+    document.forms[0].orderAddress.style.boxShadow = "none";
+    $("info-1").style.display = "none";
+    $("info-2").style.display = "none";
+    form.orderTel.disabled = false;
+    form.orderAddress.disabled = false;
     btnSbmit.disabled = false;
     let totalCost = 0;
     let costPizza = e.target.value;
     let costIgredients;
-    let images = document.getElementsByClassName("imgCheckbox");
+    let images = $$("imgCheckbox");
 
     totalCost += parseInt(costPizza);
     totalCostValue.innerHTML = totalCost;
 
-    let checkboxInputs = document.getElementsByClassName("ingredients");
+    let checkboxInputs = $$("ingredients");
 
     for (let i = 0; i < checkboxInputs.length; i++) {
       checkboxInputs[i].checked = false;
@@ -56,28 +71,67 @@ Module.costCalculation = function() {
         });
       }
     }
+
+    btnSbmit.addEventListener("click", function(e) {
+      let pattern = /\d{3}-\d{3}-\d{4}/;
+
+      if (!form.orderTel.value) {
+        form.orderTel.focus();
+        form.orderTel.style.boxShadow = "0 0 1.5px 1px red";
+        form.orderAddress.style.boxShadow = "none";
+        $("info-1").style.display = "block";
+        $("info-2").style.display = "none";
+      }
+      if (!form.orderTel.value.match(pattern) && form.orderTel.value) {
+        form.orderTel.focus();
+        form.orderTel.style.boxShadow = "0 0 1.5px 1px red";
+        // form.orderAddress.style.boxShadow = "none";
+        $("info-1").style.display = "none";
+        $("info-2").style.display = "block";
+      }
+      if (
+        form.orderTel.value.match(pattern) &&
+        form.orderTel.value &&
+        !form.orderAddress.value
+      ) {
+        form.orderAddress.focus();
+        $("info-1").style.display = "block";
+        $("info-2").style.display = "none";
+        form.orderTel.style.boxShadow = "none";
+        form.orderAddress.style.boxShadow = "0 0 1.5px 1px red";
+      }
+      if (form.orderTel.value.match(pattern) && form.orderAddress.value) {
+        document.forms[0].orderTel.style.boxShadow = "none";
+        document.forms[0].orderAddress.style.boxShadow = "none";
+        $("info-1").style.display = "none";
+        $("info-2").style.display = "none";
+        popap.style.display = "block";
+        setTimeout(() => (popap.style.display = "none"), 2000);
+        resetform();
+      }
+    });
   }
-
-  let popap = document.getElementById("popap");
-  form.onsubmit = function() {
-    popap.style.display = "block";
-  };
-
   resetform();
 };
 
 function resetform() {
-  document.getElementById("formOrder").reset();
-  for (
-    let i = 0;
-    i < document.getElementsByClassName("ingredients").length;
-    i++
-  ) {
-    document
-      .getElementsByClassName("ingredients")
-      [i].setAttribute("disabled", "");
+  $("formOrder").reset();
+  for (let i = 0; i < $$("ingredients").length; i++) {
+    $$("ingredients")[i].setAttribute("disabled", "");
   }
-  document.getElementById("submit-btn-id").disabled = true;
+  for (let j = 0; j < $$("imgCheckbox").length; j++) {
+    $$("imgCheckbox")[j].classList.remove("visible");
+    $$("imgCheckbox")[j].classList.add("hidden");
+  }
+  $("totalCostValue").innerHTML = 0;
+
+  document.forms[0].orderTel.disabled = true;
+  document.forms[0].orderAddress.disabled = true;
+  document.forms[0].orderTel.style.boxShadow = "none";
+  document.forms[0].orderAddress.style.boxShadow = "none";
+  $("info-1").style.display = "none";
+  $("info-2").style.display = "none";
+  $("submit-btn-id").disabled = true;
 }
 
 window.addEventListener("load", Module.costCalculation);
