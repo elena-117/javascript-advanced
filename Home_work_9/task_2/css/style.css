@@ -12,7 +12,7 @@
    width: 172px;
 }
 
-.selected:hover {
+.selected:focus {
    border: 6px solid darkslategray;
    cursor: pointer;
 }
